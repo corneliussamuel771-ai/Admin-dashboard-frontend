@@ -1,0 +1,131 @@
+/* ---------- THEME VARIABLES (purple dashboard) ---------- */
+:root {
+  --bg-page: #f5f3fa;        
+  --card-bg: #ffffff;         
+  --accent: #6c5ce7;          
+  --text-primary: #1f1f1f;   
+  --text-secondary: #555555; 
+  --border-color: #e0e0e0;   
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+  --bg-page: #1b1b2f;        
+  --card-bg: #2a2a3c;        
+  --accent: #a29bfe;         
+  --text-primary: #eee;
+  --text-secondary: #aaa;
+  --border-color: #444;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow-hover: rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- GLOBAL ---------- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- PAGE CONTAINER ---------- */
+.friends-page {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+/* Page title */
+.friends-page h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 32px;
+  color: var(--accent);  
+  transition: color 0.3s;
+}
+
+/* ---------- FRIENDS ROW ---------- */
+.friends-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* centers cards in the row */
+}
+
+/* ---------- FRIEND CARD ---------- */
+.friend-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--accent); 
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+  flex: 1 1 250px;       /* flexible width but minimum 250px */
+  max-width: 300px;      /* caps card width */
+  cursor: pointer;
+}
+
+/* Hover effect */
+.friend-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+/* Add Friend Card */
+.add-friend-card {
+  justify-content: center;
+  text-align: center;
+  border-left: 4px dashed var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+   flex-direction: row-reverse; 
+}
+
+/* Friend avatar */
+.friend-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  transition: border-color 0.3s;
+}
+
+/* Friend info */
+.friend-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Username */
+.friend-username {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+  transition: color 0.3s;
+}
+
+/* Email */
+.friend-email {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+/* Empty state */
+.friends-page p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+
