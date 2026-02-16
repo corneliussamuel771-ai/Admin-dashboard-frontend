@@ -16,11 +16,11 @@ export default function AddFriends() {
         headers: { Authorization: `Bearer ${token}` },
       }).then((r) => r.json()),
 
-      fetch("${BASE_URL}/api/friends", {
+      fetch(`${BASE_URL}/api/friends`, {
         headers: { Authorization: `Bearer ${token}` },
       }).then((r) => r.json()),
 
-      fetch("${BASE_URL}/api/users/me", {
+      fetch(`${BASE_URL}/api/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       }).then((r) => r.json()),
     ])
