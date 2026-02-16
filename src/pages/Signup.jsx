@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -10,11 +11,12 @@ export default function Signup() {
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
+    console.log("hello");
     e.preventDefault();
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", {
+      const res = await axios.post(`${BASE_URL}/api/auth/signup`, {
         username,
         email,
         password,

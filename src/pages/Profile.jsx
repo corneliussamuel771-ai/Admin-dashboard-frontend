@@ -1,6 +1,7 @@
 // src/pages/Profile.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../constants";
 
 export default function Profile() {
   const [user, setUser] = useState({
@@ -22,7 +23,7 @@ export default function Profile() {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/api/users/me", {
+        const res = await axios.get(`${BASE_URL}/api/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

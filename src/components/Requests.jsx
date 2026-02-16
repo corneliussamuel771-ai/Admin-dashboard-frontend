@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Requests.css"; // We'll create this for styling
+import { BASE_URL } from "../constants";
 
 export default function Requests() {
   const [requests, setRequests] = useState([]);
@@ -10,7 +11,7 @@ export default function Requests() {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:5000/api/friends/requests", {
+      const res = await fetch(`${BASE_URL}/api/friends/requests`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch requests");
@@ -25,7 +26,7 @@ export default function Requests() {
   const acceptRequest = async (userId) => {
     const token = localStorage.getItem("token");
     try {
-      await fetch(`http://localhost:5000/api/friends/accept/${userId}`, {
+      await fetch(`${BASE_URL}/api/friends/accept/${userId}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -39,7 +40,7 @@ export default function Requests() {
   const rejectRequest = async (userId) => {
     const token = localStorage.getItem("token");
     try {
-      await fetch(`http://localhost:5000/api/friends/reject/${userId}`, {
+      await fetch(`${BASE_URL}/api/friends/reject/${userId}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -88,6 +89,3 @@ export default function Requests() {
     </div>
   );
 }
-
-
-

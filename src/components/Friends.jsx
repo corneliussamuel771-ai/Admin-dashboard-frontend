@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../constants";
 
 export default function Friends() {
   const [friends, setFriends] = useState([]);
@@ -12,7 +13,7 @@ export default function Friends() {
         setLoading(true);
         setError("");
 
-        const res = await fetch("http://localhost:5000/api/friends", {
+        const res = await fetch(`${BASE_URL}/api/friends`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

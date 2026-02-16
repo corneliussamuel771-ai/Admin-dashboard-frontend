@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../constants";
 
 export default function Sidebar({ selected, requestCount }) {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Sidebar({ selected, requestCount }) {
         }
 
         // Use full backend URL if needed
-        const res = await axios.get("http://localhost:5000/api/users/me", {
+        const res = await axios.get(`${BASE_URL}/api/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

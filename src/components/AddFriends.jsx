@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../constants";
 
 export default function AddFriends() {
   const [users, setUsers] = useState([]);
@@ -11,15 +12,15 @@ export default function AddFriends() {
     if (!token) return;
 
     Promise.all([
-      fetch("http://localhost:5000/api/users", {
+      fetch(`${BASE_URL}/api/users`, {
         headers: { Authorization: `Bearer ${token}` },
       }).then((r) => r.json()),
 
-      fetch("http://localhost:5000/api/friends", {
+      fetch("${BASE_URL}/api/friends", {
         headers: { Authorization: `Bearer ${token}` },
       }).then((r) => r.json()),
 
-      fetch("http://localhost:5000/api/users/me", {
+      fetch("${BASE_URL}/api/users/me", {
         headers: { Authorization: `Bearer ${token}` },
       }).then((r) => r.json()),
     ])
@@ -40,7 +41,7 @@ export default function AddFriends() {
   }, []);
 
   const sendRequest = async (id) => {
-    await fetch(`http://localhost:5000/api/friends/request/${id}`, {
+    await fetch(`${BASE_URL}/api/friends/request/${id}`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
     });

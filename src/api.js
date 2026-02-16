@@ -1,7 +1,9 @@
+import { BASE_URL } from "./constants";
+
 export async function apiFetch(path, options = {}) {
   const token = localStorage.getItem("token");
 
-  const res = await fetch(`http://localhost:5000/api${path}`, {
+  const res = await fetch(`${BASE_URL}/api${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
