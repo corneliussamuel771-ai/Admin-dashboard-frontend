@@ -1,10 +1,13 @@
 // src/App.jsx
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+<Toaster position="topright" />;
 import Admin from "./pages/Admin.jsx";
 import Post from "./pages/Post.jsx";
 import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";
 import Signup from "./pages/Signup.jsx";
+import Settings from "./pages/Settings.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 import "./App.css";
 import "./Login.css";
@@ -38,7 +41,7 @@ export default function App() {
         <Route path="analytics" element={<Admin view="analytics" />} />
         <Route path="friends" element={<Admin view="friends" />} />
         <Route path="requests" element={<Admin view="requests" />} />
-        <Route path="settings" element={<Admin view="settings" />} />
+        <Route path="settings" element={<Settings />} />
         <Route path="posts" element={<Post />} />
         <Route path="profile" element={<Profile />} />
       </Route>

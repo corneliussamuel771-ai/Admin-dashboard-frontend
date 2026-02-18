@@ -51,3 +51,41 @@
 .auth-card p {
   margin-top: 1rem;
 }
+
+.auth-card {
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+/* Fade the form slightly when loading */
+.auth-card.loading {
+  opacity: 0.6;
+  pointer-events: none; /* disables clicks on inputs and links */
+}
+
+/* Spinner inside button */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid #2563eb; /* spinner color */
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled button style */
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

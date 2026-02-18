@@ -1,0 +1,214 @@
+.settings-page {
+  min-height: 100vh;
+  background-color: #f4f6f9;
+  padding: 50px 20px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.settings-container {
+  width: 100%;
+  max-width: 800px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.settings-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #111827;
+}
+
+.settings-section {
+  margin-bottom: 40px;
+}
+
+.settings-section h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.settings-item span {
+  font-size: 14px;
+  color: #111827;
+}
+
+/* Buttons */
+.secondary-btn {
+  padding: 8px 14px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.primary-btn {
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: #1e40af;
+}
+
+.danger-btn {
+  padding: 8px 14px;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.danger-btn:hover {
+  background-color: #b91c1c;
+}
+
+.settings-section.danger h3 {
+  color: #dc2626;
+}
+
+/* Toggle Switch */
+.toggle {
+  width: 42px;
+  height: 22px;
+  background-color: #d1d5db;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.toggle.enabled {
+  background-color: #2563eb;
+}
+
+.toggle-knob {
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: 0.2s ease;
+}
+
+.toggle.enabled .toggle-knob {
+  left: 22px;
+}
+
+/* ------------------------ */
+/* MODAL STYLES */
+/* ------------------------ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal h3 {
+  margin: 0;
+  color: #111827;
+}
+
+.modal input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+}
+
+.modal .primary-btn {
+  margin-top: 10px;
+}
+
+.modal .secondary-btn {
+  background-color: #f3f4f6;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  margin-top: 5px;
+}
+
+.modal .secondary-btn:hover {
+  background-color: #e5e7eb;
+}
+
+/* Input validation and success checkmark */
+.input-success {
+  border: 1px solid #16a34a !important; /* green border */
+  padding-right: 30px; /* space for checkmark */
+  position: relative;
+}
+
+.input-success::after {
+  content: "✔";
+  color: #16a34a;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+}
+
+.input-error {
+  border: 1px solid #dc2626 !important;
+  padding-right: 30px;
+  position: relative;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}

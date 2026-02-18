@@ -7,11 +7,13 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
       const res = await axios.post(`${BASE_URL}/api/auth/login`, {
@@ -20,15 +22,17 @@ export default function Login() {
       });
 
       localStorage.setItem("token", res.data.token);
-      navigate("/admin"); // SPA navigation
+      navigate("/admin");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="auth-page">
-      <div className="auth-card">
+      <div className={`auth-card ${loading ? "loading" : ""}`}>
         <h2>Login</h2>
 
         <form onSubmit={handleLogin}>
@@ -38,6 +42,7 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={loading}
           />
           <input
             type="password"
@@ -45,8 +50,11 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={loading}
           />
-          <button type="submit">Login</button>
+          <button type="submit" disabled={loading}>
+            {loading ? <span className="spinner"></span> : "Login"}
+          </button>
         </form>
 
         {error && <p className="error">{error}</p>}

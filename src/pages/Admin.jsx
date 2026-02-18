@@ -108,8 +108,6 @@ export default function Admin({ view = "overview" }) {
         )}
 
         {view === "requests" && <Requests />}
-
-        {view === "settings" && <h2>Settings Page</h2>}
       </div>
     </div>
   );
